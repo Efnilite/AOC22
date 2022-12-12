@@ -26,8 +26,7 @@
 
 (defn get-priority-sum [cs]
   (apply +
-     (for [c cs]
-       (get-priority c))))
+     (map cs get-priority)))
 
 (defn get-total []
   (apply +
@@ -60,7 +59,7 @@
                (some (fn [x] (= x %)) a)
                (some (fn [x] (= x %)) b)
                (some (fn [x] (= x %)) c))
-      (flatten (for [g group] (seq g))))
+      (flatten (apply seq group)))
     )))
 
 
