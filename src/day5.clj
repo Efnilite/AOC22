@@ -25,9 +25,10 @@
           (assoc s from (subvec from-vec 0 (- (count from-vec) (count moving-vec))))))
   )
 
+;; parses instructions and starting-positions to return a map of the final boxes.
 (defn parse-instructions []
   (loop [positions starting-positions rem-instructions instruction-list]
-    (println (count rem-instructions) (into (sorted-map) positions))
+    (println (count rem-instructions) (into (sorted-map) positions)) ; for debugging, can be removed
     (if (zero? (count rem-instructions))
       positions
       (let [i (first rem-instructions)]
